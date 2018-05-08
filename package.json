@@ -5,14 +5,18 @@
   "author": "Max Zauner",
   "license": "MIT",
   "dependencies": {
+    "@types/bcryptjs": "^2.4.1",
     "aws-sdk": "^2.229.1",
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
     "express-winston": "^2.5.1",
+    "jsonwebtoken": "^8.2.1",
     "mysql": "^2.15.0",
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
     "typedi": "^0.7.2",
     "typeorm": "^0.2.3",
+    "typeorm-typedi-extensions": "^0.2.1",
     "winston": "^2.4.2"
   },
   "devDependencies": {

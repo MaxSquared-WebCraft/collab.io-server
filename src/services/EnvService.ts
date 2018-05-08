@@ -13,6 +13,8 @@ export class EnvService {
   private readonly port = process.env.APP_PORT || 8080;
   private readonly dbConfigPath = process.env.DB_CONFIG_PATH || '/dbConfig.json';
 
+  public readonly jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
+
   get Env(): string {
     return this.env;
   }
@@ -23,5 +25,9 @@ export class EnvService {
 
   get DbConfigPath(): string {
     return path.resolve(process.cwd() + this.dbConfigPath);
+  }
+
+  get JwtSecret(): string {
+    return this.jwtSecret;
   }
 }

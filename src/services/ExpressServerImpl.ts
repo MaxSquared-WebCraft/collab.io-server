@@ -9,6 +9,7 @@ import { ILogger } from '../interfaces/ILogger';
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
 import * as express from 'express';
+import { AuthService } from './AuthService';
 
 export const ExpressServerImpl = new Token<IServer>();
 
@@ -20,6 +21,7 @@ export class ExpressImpl implements IServer {
   constructor(
     @Logger() private readonly logger: ILogger,
     private readonly envService: EnvService,
+    private readonly authService: AuthService,
   ) {
 
     this.app = express();
@@ -27,6 +29,12 @@ export class ExpressImpl implements IServer {
     this.addExpressLoggerMiddleware();
 
     useExpressServer(this.Instance, {
+      cors: true,
+      authorizationChecker: this.authService.authorizationChecker,
+      defaults: {
+        nullResultCode: 404,
+        undefinedResultCode: 204,
+      },
       controllers: [
         StatsController
       ]
