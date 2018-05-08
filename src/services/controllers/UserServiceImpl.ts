@@ -13,7 +13,7 @@ import { AuthService } from '../AuthService';
 
 export const UserServiceImpl = new Token<UserService>();
 
-@Service()
+@Service(UserServiceImpl)
 export class UserService implements IUserService{
 
   constructor(
@@ -36,9 +36,11 @@ export class UserService implements IUserService{
 
     return bcrypt
       .compare(loginUser.password, user.pwHash)
-      .then((pwDoesMatch) => {
+      .then(async (pwDoesMatch) => {
         if (!pwDoesMatch) throw new UnauthorizedError('Passwords do not match');
-        return this.authService.createToken(user);
+        const token: string = await this.authService.createToken(user);
+        if (!token) throw new UnauthorizedError('Could not authorize user');
+        return token
       })
       .catch(() => {
         this.logger.verbose('Could not verify user');

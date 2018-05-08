@@ -4,6 +4,7 @@ import { EnvService } from '../services/EnvService';
 import { IServer } from '../interfaces/IServer';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
+import { DefaultDataService } from '../services/DefaultDataService';
 
 @Service()
 export class Application {
@@ -12,9 +13,11 @@ export class Application {
     @Inject(ExpressServerImpl) private readonly server: IServer,
     @Logger() private readonly logger: ILogger,
     private readonly envService: EnvService,
+    private readonly defaultDataService: DefaultDataService,
   ) { }
 
-  public readonly start = () => {
+  public readonly start = async () => {
+    await this.defaultDataService.setupDatabase();
     const port = this.envService.Port;
     this.server.start(port);
     this.logger.info(`Server listening at port ${port}`);

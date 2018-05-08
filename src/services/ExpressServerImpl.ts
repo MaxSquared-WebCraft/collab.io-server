@@ -1,15 +1,15 @@
 import { Service, Token } from 'typedi';
 import { useExpressServer } from 'routing-controllers';
-import { StatsController } from '../controllers/StatsController';
 import { IServer } from '../interfaces/IServer';
 import { Environment, EnvService } from './EnvService';
 import { Logger } from '../decorators/Logger';
 import { ILogger } from '../interfaces/ILogger';
+import { AuthService } from './AuthService';
+import { UserController } from '../controllers/UserController';
 
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
 import * as express from 'express';
-import { AuthService } from './AuthService';
 
 export const ExpressServerImpl = new Token<IServer>();
 
@@ -36,7 +36,7 @@ export class ExpressImpl implements IServer {
         undefinedResultCode: 204,
       },
       controllers: [
-        StatsController
+        UserController
       ]
     });
   }
@@ -68,6 +68,7 @@ export class ExpressImpl implements IServer {
     }
   };
 
+  // noinspection JSUnusedGlobalSymbols
   public readonly start = (port: number): void => {
     this.Instance.listen(port);
   };

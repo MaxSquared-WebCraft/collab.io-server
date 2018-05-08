@@ -22,8 +22,9 @@ export class AuthService {
       const payload: Token = {
         name: user.name,
       };
-      jwt.sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (token) => {
-        resolve(token)
+      jwt.sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (err, token) => {
+        if (err || !token) resolve(null);
+        else resolve(token);
       });
     })
   }
@@ -31,7 +32,7 @@ export class AuthService {
   public verifyToken(token: string): Promise<Token> {
     return new Promise((resolve) => {
       jwt.verify(token, this.envService.JwtSecret, (err, decoded) => {
-        if (err) resolve(null);
+        if (err || !decoded) resolve(null);
         resolve(decoded);
       });
     });

@@ -13,7 +13,10 @@ export class EnvService {
   private readonly port = process.env.APP_PORT || 8080;
   private readonly dbConfigPath = process.env.DB_CONFIG_PATH || '/dbConfig.json';
 
-  public readonly jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
+  private readonly jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
+
+  public readonly defaultUserName: string = process.env.DEF_USER_NAME || 'defaultRootUser';
+  public readonly defaultUserPassword: string = process.env.DEF_USER_PASSWORD || 'defaultRootUserPassword';
 
   get Env(): string {
     return this.env;
@@ -29,5 +32,13 @@ export class EnvService {
 
   get JwtSecret(): string {
     return this.jwtSecret;
+  }
+
+  get DefaultUserName(): string {
+    return this.defaultUserName;
+  }
+
+  get DefaultUserPassword(): string {
+    return this.defaultUserPassword;
   }
 }
