@@ -8,8 +8,8 @@ export enum Environment {
 @Service()
 export class EnvService {
 
-  private readonly env = process.env.NODE_ENV || Environment.development;
-  private readonly port = process.env.APP_PORT || 8080;
+  private readonly _env = process.env.NODE_ENV || Environment.development;
+  private readonly _port = process.env.APP_PORT || 8080;
 
   private readonly _dbHost = process.env.DB_HOST || '192.168.99.100';
   private readonly _dbPort = process.env.DB_PORT || '3306';
@@ -17,17 +17,17 @@ export class EnvService {
   private readonly _dbUsername = process.env.DB_USERNAME || 'user';
   private readonly _dbPassword = process.env.DB_PASSWORD || 'password';
 
-  private readonly jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
+  private readonly _jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
 
-  public readonly defaultUserName: string = process.env.DEF_USER_NAME || 'defaultRootUser';
-  public readonly defaultUserPassword: string = process.env.DEF_USER_PASSWORD || 'defaultRootUserPassword';
+  public readonly _defaultUserName: string = process.env.DEF_USER_NAME || 'defaultRootUser';
+  public readonly _defaultUserPassword: string = process.env.DEF_USER_PASSWORD || 'defaultRootUserPassword';
 
   get Env(): string {
-    return this.env;
+    return this._env;
   }
 
   get Port(): number {
-    return Number(this.port);
+    return Number(this._port);
   }
 
   get DbHost(): string {
@@ -51,14 +51,14 @@ export class EnvService {
   }
 
   get JwtSecret(): string {
-    return this.jwtSecret;
+    return this._jwtSecret;
   }
 
   get DefaultUserName(): string {
-    return this.defaultUserName;
+    return this._defaultUserName;
   }
 
   get DefaultUserPassword(): string {
-    return this.defaultUserPassword;
+    return this._defaultUserPassword;
   }
 }
