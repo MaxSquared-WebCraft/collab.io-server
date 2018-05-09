@@ -5,6 +5,7 @@ import { IServer } from '../interfaces/IServer';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
 import { DefaultDataService } from '../services/DefaultDataService';
+import { SocketIoService } from '../services/SocketIoService';
 
 @Service()
 export class Application {
@@ -13,8 +14,11 @@ export class Application {
     @Inject(ExpressServerImpl) private readonly server: IServer,
     @Logger() private readonly logger: ILogger,
     private readonly envService: EnvService,
+    private readonly socketIo: SocketIoService,
     private readonly defaultDataService: DefaultDataService,
-  ) { }
+  ) {
+    socketIo.initialize(server.Server);
+  }
 
   public readonly start = async () => {
     await this.defaultDataService.setupDatabase();
