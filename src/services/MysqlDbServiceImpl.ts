@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
 import { User } from '../models/entities/User';
+import { Room } from '../models/entities/Room';
 
 export const MysqlDbServiceImpl = new Token<MysqlService>();
 
@@ -38,6 +39,7 @@ export class MysqlService implements IDbConfig {
     else throw new Error(`Database config not found in ${this.configPath}. The config file is git ignored.`);
   };
 
+  // noinspection JSUnusedGlobalSymbols
   public readonly getDbConfig = () => {
 
     const config = this.envService.Env === Environment.development ?
@@ -55,9 +57,7 @@ export class MysqlService implements IDbConfig {
       database: config.database,
       username: config.username,
       password: config.password,
-      entities: [
-        User,
-      ]
+      entities: [User, Room]
     };
   };
 }
