@@ -1,7 +1,6 @@
 import { Service, Token } from 'typedi';
-import { Environment, EnvService } from './EnvService';
+import { EnvService } from './EnvService';
 import { IDbConfig } from '../interfaces/IDbConfig';
-import * as fs from 'fs';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
 import { User } from '../models/entities/User';
@@ -9,42 +8,27 @@ import { Room } from '../models/entities/Room';
 
 export const MysqlDbServiceImpl = new Token<MysqlService>();
 
-interface IDbFields {
-  username: string;
-  password: string;
-  host: string;
-  port: string;
-  database: string;
-}
-
-interface IDbCredentials {
-  development: IDbFields;
-  production: IDbFields;
-}
-
 @Service(MysqlDbServiceImpl)
 export class MysqlService implements IDbConfig {
-
-  private readonly configPath: string;
 
   constructor(
     @Logger() private readonly logger: ILogger,
     private readonly envService: EnvService
-  ) {
-    this.configPath = envService.DbConfigPath;
-  }
-
-  private readonly getConfigFromFs = (): IDbCredentials => {
-    if (fs.existsSync(this.configPath)) return require(this.configPath);
-    else throw new Error(`Database config not found in ${this.configPath}. The config file is git ignored.`);
-  };
+  ) { }
 
   // noinspection JSUnusedGlobalSymbols
   public readonly getDbConfig = () => {
 
-    const config = this.envService.Env === Environment.development ?
-      this.getConfigFromFs().development :
-      this.getConfigFromFs().production;
+    const config = {
+      type: 'mysql',
+      synchronize: true,
+      logging: false,
+      host: this.envService.DbHost,
+      port: this.envService.DbPort,
+      database: this.envService.DbName,
+      username: this.envService.DbUsername,
+      password: this.envService.DbPassword,
+    };
 
     this.logger.verbose('Initializing database with', config);
 

@@ -1,5 +1,4 @@
 import { Service } from 'typedi';
-import * as path from 'path';
 
 export enum Environment {
   development = 'development',
@@ -11,7 +10,12 @@ export class EnvService {
 
   private readonly env = process.env.NODE_ENV || Environment.development;
   private readonly port = process.env.APP_PORT || 8080;
-  private readonly dbConfigPath = process.env.DB_CONFIG_PATH || '/dbConfig.json';
+
+  private readonly _dbHost = process.env.DB_HOST || '192.168.99.100';
+  private readonly _dbPort = process.env.DB_PORT || '3306';
+  private readonly _dbName = process.env.DB_NAME || 'collabio';
+  private readonly _dbUsername = process.env.DB_USERNAME || 'user';
+  private readonly _dbPassword = process.env.DB_PASSWORD || 'password';
 
   private readonly jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
 
@@ -26,8 +30,24 @@ export class EnvService {
     return Number(this.port);
   }
 
-  get DbConfigPath(): string {
-    return path.resolve(process.cwd() + this.dbConfigPath);
+  get DbHost(): string {
+    return this._dbHost;
+  }
+
+  get DbPort(): string {
+    return this._dbPort;
+  }
+
+  get DbName(): string {
+    return this._dbName;
+  }
+
+  get DbUsername(): string {
+    return this._dbUsername;
+  }
+
+  get DbPassword(): string {
+    return this._dbPassword;
   }
 
   get JwtSecret(): string {
