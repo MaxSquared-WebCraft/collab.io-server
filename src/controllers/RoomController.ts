@@ -5,6 +5,7 @@ import { User } from '../models/entities/User';
 import { RoomServiceImpl } from '../services/controllers/RoomServiceImpl';
 import { Inject } from 'typedi';
 import { IRoomService } from '../interfaces/IRoomService';
+import { Room } from '../models/entities/Room';
 
 @JsonController('/room')
 export class RoomController {
@@ -21,12 +22,19 @@ export class RoomController {
   public addRoom(
     @CurrentUser() user: User,
     @BodyParam('name') roomName: string
-  ) {
+  ): Promise<string> {
     return this.roomService.createRoom(roomName, user);
   }
 
+  @Authorized()
+  @Get('/list')
+  public listRooms(): Promise<Room[]> {
+    return this.roomService.listRooms();
+  }
+
+  @Authorized()
   @Get()
-  public getRoomId(@QueryParam('name') roomName: string) {
+  public getRoomId(@QueryParam('name') roomName: string): Promise<string> {
     return this.roomService.getRoomId(roomName);
   }
 
@@ -35,7 +43,7 @@ export class RoomController {
   public removeRoom(
     @CurrentUser() user: User,
     @BodyParam('name') roomName: string
-  ) {
+  ): Promise<void> {
     return this.roomService.removeRoom(roomName, user);
   }
 

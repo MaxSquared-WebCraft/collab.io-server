@@ -37,6 +37,11 @@ export class RoomService implements IRoomService {
     return newRoom.uuid;
   }
 
+  public async listRooms(): Promise<Room[]> {
+    this.logger.verbose('Fetching all available rooms');
+    return this.roomRepository.find();
+  }
+
   public async getRoomId(roomName: string): Promise<string> {
     const room = await this.roomRepository.findOne({ name: roomName });
     if (!room) throw new NotFoundError(`Room with name '${roomName}' not found.`);
