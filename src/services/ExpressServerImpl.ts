@@ -77,7 +77,7 @@ export class ExpressImpl implements IServer {
 
   // noinspection JSUnusedGlobalSymbols
   public readonly start = (port: number): void => {
-    this.App.listen(port);
+    this.Server.listen(port);
   };
 
   get App(): Express {
