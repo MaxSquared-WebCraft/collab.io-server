@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/collab.io-server.iml" filepath="$PROJECT_DIR$/.idea/collab.io-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/websocket-server.iml" filepath="$PROJECT_DIR$/.idea/websocket-server.iml" />
     </modules>
   </component>
 </project>

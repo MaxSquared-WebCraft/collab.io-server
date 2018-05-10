@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/collab.io-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="feat(room): implemented room functionality">
       <change afterPath="$PROJECT_DIR$/src/repositories/UserRepository.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/collab.io-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/collab.io-server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/websocket-server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/RoomController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/RoomController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interfaces/IRoomService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IRoomService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/entities/Room.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/entities/Room.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/entities/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/entities/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/ExpressServerImpl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ExpressServerImpl.ts" afterDir="false" />
@@ -30,20 +28,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="RoomController.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="RoomController.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/controllers/RoomController.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RoomServiceImpl.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="12" selection-start-line="12" selection-end-line="12" />
+                <state relative-caret-position="368">
+                  <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -51,8 +40,8 @@
           <file leaf-file-name="ExpressServerImpl.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/ExpressServerImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+                <state relative-caret-position="224">
+                  <caret line="14" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
             </entry>
@@ -60,17 +49,17 @@
           <file leaf-file-name="AuthService.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
+                <state relative-caret-position="224">
+                  <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserRepository.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="UserRepository.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+                <state relative-caret-position="208">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
                 </state>
               </provider>
             </entry>
@@ -79,11 +68,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="User.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="User.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/models/entities/User.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+                <state relative-caret-position="288">
+                  <caret line="18" selection-start-line="18" selection-end-line="18" />
                 </state>
               </provider>
             </entry>
@@ -91,26 +80,35 @@
           <file leaf-file-name="UserServiceImpl.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="496">
                   <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Room.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Room.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/models/entities/Room.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+                <state relative-caret-position="288">
+                  <caret line="18" selection-start-line="18" selection-end-line="18" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserController.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+          <file leaf-file-name="RoomServiceImpl.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="14" column="71" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="71" />
+                <state relative-caret-position="608">
+                  <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IRoomService.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="48">
+                  <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
                 </state>
               </provider>
             </entry>
@@ -157,19 +155,20 @@
         <option value="$PROJECT_DIR$/src/services/EnvService.ts" />
         <option value="$PROJECT_DIR$/src/services/DefaultDataService.ts" />
         <option value="$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts" />
-        <option value="$PROJECT_DIR$/src/models/entities/Room.ts" />
         <option value="$PROJECT_DIR$/src/config/Application.ts" />
         <option value="$PROJECT_DIR$/src/interfaces/IServer.ts" />
         <option value="$PROJECT_DIR$/src/services/SocketIoService.ts" />
         <option value="$PROJECT_DIR$/src/services/MysqlDbServiceImpl.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/models/entities/Room.ts" />
+        <option value="$PROJECT_DIR$/src/services/ExpressServerImpl.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/src/services/AuthService.ts" />
+        <option value="$PROJECT_DIR$/src/interfaces/IRoomService.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/RoomController.ts" />
         <option value="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/models/entities/User.ts" />
         <option value="$PROJECT_DIR$/src/repositories/UserRepository.ts" />
-        <option value="$PROJECT_DIR$/src/services/AuthService.ts" />
-        <option value="$PROJECT_DIR$/src/services/ExpressServerImpl.ts" />
-        <option value="$PROJECT_DIR$/src/interfaces/IRoomService.ts" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/controllers/RoomController.ts" />
       </list>
     </option>
   </component>
@@ -201,22 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="collab.io-server" type="cbb8eebc:String" user="collab.io-server" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="collab.io-server" type="cbb8eebc:String" user="collab.io-server" />
-              <item name=".idea" type="cbb8eebc:String" user=".idea" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,6 +253,12 @@
               <item name="collab.io-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="collab.io-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="collab.io-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="collab.io-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -278,6 +267,26 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="collab.io-server" type="cbb8eebc:String" user="collab.io-server" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="collab.io-server" type="cbb8eebc:String" user="collab.io-server" />
             </path>
           </expand>
           <select />
@@ -297,7 +306,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
@@ -388,7 +397,9 @@
       <workItem from="1525909297801" duration="204000" />
       <workItem from="1525909513674" duration="56000" />
       <workItem from="1525909579538" duration="87000" />
-      <workItem from="1525910263699" duration="430000" />
+      <workItem from="1525910263699" duration="2974000" />
+      <workItem from="1525914059716" duration="237000" />
+      <workItem from="1525914305673" duration="1150000" />
     </task>
     <task id="LOCAL-00001" summary="feat(src): adding files for server rewrite">
       <created>1524879050746</created>
@@ -418,42 +429,51 @@
       <option name="project" value="LOCAL" />
       <updated>1525869096927</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(idea): commit idea files">
+      <created>1525910926028</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1525910926028</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23722000" />
+    <option name="totallyTimeSpent" value="27653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TypeScript" order="8" />
+      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32942098" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10441292" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32942098" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32942098" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32942098" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32942098" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32942098" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32942098" />
+      <window_info anchor="right" id="DB Browser" order="7" weight="0.26868045" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32974634" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32942098" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,31 +513,11 @@
     <MESSAGE value="feat(users): added user functionality" />
     <MESSAGE value="feat(socket.io): added socket.io" />
     <MESSAGE value="feat(rooms): WIP: added room functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(rooms): WIP: added room functionality" />
+    <MESSAGE value="feat(idea): commit idea files" />
+    <MESSAGE value="feat(room): implemented room functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(room): implemented room functionality" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/entities/User.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/MysqlDbServiceImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/StatsController.ts" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -678,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/Application.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Token.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -713,69 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/entities/User.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ExpressServerImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="71" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/entities/Room.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -783,13 +713,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/models/entities/Room.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/interfaces/IRoomService.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ExpressServerImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AuthService.js" />
+    <entry file="file://$PROJECT_DIR$/.idea/collab.io-server.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12192" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/Application.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/entities/User.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/RoomController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="368">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

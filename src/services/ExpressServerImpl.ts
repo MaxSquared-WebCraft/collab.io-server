@@ -6,6 +6,7 @@ import { Logger } from '../decorators/Logger';
 import { ILogger } from '../interfaces/ILogger';
 import { AuthService } from './AuthService';
 import { UserController } from '../controllers/UserController';
+import { RoomController } from '../controllers/RoomController';
 
 import * as express from 'express';
 import * as expressWinston from 'express-winston';
@@ -36,13 +37,12 @@ export class ExpressImpl implements IServer {
     useExpressServer(this.App, {
       cors: true,
       authorizationChecker: this.authService.authorizationChecker,
+      currentUserChecker: this.authService.currentUserChecker,
       defaults: {
         nullResultCode: 404,
         undefinedResultCode: 204,
       },
-      controllers: [
-        UserController
-      ]
+      controllers: [UserController, RoomController]
     });
 
     this.server = new http.Server(this.App);
