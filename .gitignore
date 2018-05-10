@@ -1,0 +1,8 @@
+# common
+build
+
+# node project
+node_modules
+
+# Intellij IDE
+*.log
