@@ -1,22 +1,29 @@
 import * as socketIo from 'socket.io';
 import * as http from 'http';
 
-import { Service } from 'typedi';
+import { Inject, Service } from 'typedi';
 import { Logger } from '../decorators/Logger';
 import { ILogger } from '../interfaces/ILogger';
 import { AuthService } from './AuthService';
 import { UnauthorizedError } from 'routing-controllers';
+import { RoomServiceImpl } from './controllers/RoomServiceImpl';
+import { IRoomService } from '../interfaces/IRoomService';
+
+interface IJoinRoomInfo {
+  roomId: string;
+  userId: string;
+}
 
 @Service()
 export class SocketIoService {
 
   private initialized: boolean = false;
   private io: socketIo.Server;
-  private clientMap: Map<string, string> = new Map<string, string>();
 
   constructor(
     @Logger() private readonly logger: ILogger,
-    private readonly authService: AuthService,
+    @Inject(RoomServiceImpl) private readonly roomService: IRoomService,
+    private readonly authService: AuthService
   ) { }
 
   private socketIoLog(message: string, ...args: any[]): void {
@@ -32,35 +39,7 @@ export class SocketIoService {
     this.initialized = true;
   }
 
-  private readonly handleJoinRoom = (socket: socketIo.Socket) => (room: string) => {
-
-    const currentRoom: string = this.clientMap.get(socket.id);
-
-    if (currentRoom && currentRoom !== room) {
-      this.socketIoLog(`Client ${socket.id} leaves current room ${currentRoom}`);
-      socket.leave(currentRoom);
-    }
-
-    this.socketIoLog(`Client ${socket.id} joins room ${room}`);
-
-    this.clientMap.set(socket.id, room);
-    socket.join(room);
-  };
-
-  private readonly handleClientMessage = (socket: socketIo.Socket) => (message: any) => {
-    const currentRoom: string = this.clientMap.get(socket.id);
-    if (currentRoom) socket.to(currentRoom).emit('message', message);
-  };
-
-  private readonly connectionHandler = (socket: socketIo.Socket) => {
-    this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} connected.`);
-    socket.on('room', this.handleJoinRoom(socket));
-    socket.on('message', this.handleClientMessage(socket));
-  };
-
-  private readonly disconnectHandler = (socket: socketIo.Socket) => {
-    this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} disconnected.`);
-  };
+  /* Authorization middleware */
 
   private readonly authorizeSocketConnection = async (socket: socketIo.Socket, next) => {
 
@@ -78,6 +57,45 @@ export class SocketIoService {
       this.socketIoLog('Client successfully authorized');
       next();
     }
+  };
+
+  /* Connection handlers
+   * These functions handle the connections and disconnections of the clients
+   * */
+
+  // TODO: on start application automatically set sockets to correct room
+  private readonly connectionHandler = (socket: socketIo.Socket) => {
+    this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} connected.`);
+    socket.on('room', this.handleJoinRoom(socket));
+  };
+
+  private readonly disconnectHandler = (socket: socketIo.Socket) => {
+    this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} disconnected.`);
+  };
+
+  /* Socket handlers
+   * These functions handle the individual socket communication
+   */
+
+  // TODO: emit errors on socket
+  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (info: IJoinRoomInfo) => {
+
+    const isUserInRoom = this.roomService.isUserInRoom(info.userId);
+
+    if (isUserInRoom) {
+      socket.removeAllListeners('message');
+      socket.leaveAll();
+    }
+
+    await this.roomService.addUserToRoom(info.roomId, info.userId);
+
+    socket.join(info.roomId);
+
+    socket.on('message', this.handleClientMessage(socket, info.roomId));
+  };
+
+  private readonly handleClientMessage = (socket: socketIo.Socket, roomId: string) => (message: any) => {
+    socket.to(roomId).emit('message', message);
   };
 
 }

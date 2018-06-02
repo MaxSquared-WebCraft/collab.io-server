@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Room } from './Room';
 
 @Entity()
@@ -13,6 +13,6 @@ export class User {
   @Column()
   pwHash: string;
 
-  @OneToMany(() => Room, (room) => room.user)
-  rooms: Room[];
+  @ManyToOne(() => Room, (room) => room.users)
+  room: Room;
 }

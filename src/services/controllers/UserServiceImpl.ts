@@ -6,20 +6,21 @@ import { Logger } from '../../decorators/Logger';
 import { ILogger } from '../../interfaces/ILogger';
 import { User } from '../../models/entities/User';
 import { Repository } from 'typeorm';
-import { LoginUser, RegisterUser } from '../../models/User';
+import { LoginUser } from '../../models/LoginUser';
 import { NotFoundError, UnauthorizedError } from 'routing-controllers';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import { AuthService } from '../AuthService';
+import { RegisterUser } from '../../models/RegisterUser';
 
 export const UserServiceImpl = new Token<UserService>();
 
 @Service(UserServiceImpl)
-export class UserService implements IUserService{
+export class UserService implements IUserService {
 
   constructor(
     @Logger() private readonly logger: ILogger,
     @OrmRepository(User) private readonly userRepository: Repository<User>,
-    private readonly authService: AuthService,
+    private readonly authService: AuthService
   ) {
     this.logger.verbose('Initializing User service');
   }
@@ -40,7 +41,7 @@ export class UserService implements IUserService{
         if (!pwDoesMatch) throw new UnauthorizedError('Passwords do not match');
         const token: string = await this.authService.createToken(user);
         if (!token) throw new UnauthorizedError('Could not authorize user');
-        return token
+        return token;
       })
       .catch(() => {
         this.logger.verbose('Could not verify user');

@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './User';
+import { v4 as uuid } from 'uuid';
 
 @Entity()
 export class Room {
@@ -7,12 +8,17 @@ export class Room {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   name: string;
 
   @Column()
   uuid: string;
 
-  @ManyToOne(() => User, (user) => user.rooms)
-  user: User;
+  @OneToMany(() => User, (user) => user.room)
+  users: User[];
+
+  constructor(name: string) {
+    this.name = name;
+    this.uuid = uuid();
+  }
 }

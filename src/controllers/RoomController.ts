@@ -1,4 +1,4 @@
-import { Authorized, BodyParam, CurrentUser, Delete, Get, JsonController, Post, QueryParam } from 'routing-controllers';
+import { Authorized, BodyParam, CurrentUser, Get, JsonController, Post, QueryParam } from 'routing-controllers';
 import { Logger } from '../decorators/Logger';
 import { ILogger } from '../interfaces/ILogger';
 import { User } from '../models/entities/User';
@@ -39,12 +39,9 @@ export class RoomController {
   }
 
   @Authorized()
-  @Delete()
-  public removeRoom(
-    @CurrentUser() user: User,
-    @BodyParam('name') roomName: string
-  ): Promise<void> {
-    return this.roomService.removeRoom(roomName, user);
+  @Get()
+  public getRoomUsers(@QueryParam('roomId') roomId: string): Promise<User[]> {
+    return this.roomService.getUsersFromRoom(roomId);
   }
 
 }

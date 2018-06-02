@@ -1,5 +1,6 @@
 import { User } from '../models/entities/User';
-import { LoginUser, RegisterUser } from '../models/User';
+import { LoginUser } from '../models/LoginUser';
+import { RegisterUser } from '../models/RegisterUser';
 
 export interface IUserService {
   login: (loginUser: LoginUser) => Promise<string>;

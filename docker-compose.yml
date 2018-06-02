@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  dcs-db-dev:
+  collab.io-db-dev:
     image: mysql:8.0
     ports:
       - 3306:3306
