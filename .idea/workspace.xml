@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="642">
+                <state relative-caret-position="1280">
                   <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
                 </state>
               </provider>
@@ -92,8 +93,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="32">
-                  <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+                <state relative-caret-position="448">
+                  <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -129,7 +130,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="674">
@@ -147,11 +148,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="18" selection-start-line="18" selection-end-line="19" />
+                <state relative-caret-position="384">
+                  <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/models/Token.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="32">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -205,12 +215,10 @@
         <option value="$PROJECT_DIR$/src/repositories/UserRepository.ts" />
         <option value="$PROJECT_DIR$/src/services/ExpressServerImpl.ts" />
         <option value="$PROJECT_DIR$/src/models/IToken.ts" />
-        <option value="$PROJECT_DIR$/src/models/Token.ts" />
         <option value="$PROJECT_DIR$/src/models/RegisterUser.ts" />
         <option value="$PROJECT_DIR$/src/models/LoginUser.ts" />
         <option value="$PROJECT_DIR$/src/interfaces/IUserService.ts" />
         <option value="$PROJECT_DIR$/tslint.json" />
-        <option value="$PROJECT_DIR$/src/services/AuthService.ts" />
         <option value="$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/models/RoomData.ts" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
@@ -223,6 +231,8 @@
         <option value="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/services/SocketIoService.ts" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/models/Token.ts" />
+        <option value="$PROJECT_DIR$/src/services/AuthService.ts" />
       </list>
     </option>
   </component>
@@ -250,57 +260,294 @@
     <option name="height" value="1416" />
   </component>
   <component name="ProjectUserFactors">
-    <factor id="binaryFeature:liftShorter" />
-    <factor id="binaryFeature:liftShorterClasses" />
-    <factor id="binaryFeature:middleMatching" />
-    <factor id="binaryFeature:nonGeneric" />
-    <factor id="binaryFeature:prox_inResolveScope" />
-    <factor id="binaryFeature:prox_openedInEditor" />
-    <factor id="binaryFeature:prox_sameDirectory" />
-    <factor id="binaryFeature:prox_sameLogicalRoot" />
-    <factor id="binaryFeature:prox_sdkOrLibrary" />
-    <factor id="binaryFeature:templates" />
-    <factor id="categoricalFeature:accessible" />
-    <factor id="categoricalFeature:expectedType" />
-    <factor id="categoricalFeature:kind" />
-    <factor id="categoricalFeature:prox_groovyReferenceListWeigher" />
-    <factor id="categoricalFeature:prox_javaInheritance" />
-    <factor id="categoricalFeature:prox_referenceList" />
-    <factor id="categoricalFeature:recursion" />
+    <factor id="binaryFeature:liftShorter">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="false" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:liftShorterClasses">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:middleMatching">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:nonGeneric">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_inResolveScope">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="true" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_openedInEditor">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="false" value="1,0" />
+        <observation name="true" value="1,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameDirectory">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="false" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameLogicalRoot">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="false" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sdkOrLibrary">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="false" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:templates">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:accessible">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:expectedType">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:kind">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="unknown" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_javaInheritance">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="null" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_referenceList">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="unknown" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:recursion">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
     <factor id="completionFinishedType">
       <dailyData date="3-6-2018">
-        <observation name="cancelled" value="1,0" />
+        <observation name="cancelled" value="8,0" />
+        <observation name="explicitSelect" value="2,0" />
+        <observation name="typedSelect" value="5,0" />
       </dailyData>
     </factor>
-    <factor id="completionType" />
+    <factor id="completionType">
+      <dailyData date="3-6-2018">
+        <observation name="BASIC" value="8,0" />
+      </dailyData>
+    </factor>
     <factor id="completionUsage">
       <dailyData date="3-6-2018">
-        <observation name="count" value="1,0" />
+        <observation name="count" value="15,0" />
       </dailyData>
     </factor>
-    <factor id="doubleFeature:explicitProximity" />
-    <factor id="doubleFeature:grouping" />
-    <factor id="doubleFeature:mostUsed" />
-    <factor id="doubleFeature:nameEnd" />
-    <factor id="doubleFeature:position" />
-    <factor id="doubleFeature:prefix" />
-    <factor id="doubleFeature:priority" />
-    <factor id="doubleFeature:prox_explicitlyImported" />
-    <factor id="doubleFeature:prox_knownElement" />
-    <factor id="doubleFeature:prox_sameModule" />
-    <factor id="doubleFeature:prox_samePsiMember" />
-    <factor id="doubleFeature:query_length" />
-    <factor id="doubleFeature:result_length" />
-    <factor id="doubleFeature:sameWords" />
-    <factor id="doubleFeature:shorter" />
-    <factor id="doubleFeature:simple" />
-    <factor id="doubleFeature:sorter" />
-    <factor id="doubleFeature:statics" />
-    <factor id="doubleFeature:stats" />
-    <factor id="itemPosition" />
-    <factor id="mnemonicsUsage" />
-    <factor id="prefixLength" />
-    <factor id="timeBetweenTyping" />
+    <factor id="doubleFeature:explicitProximity">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="0,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:grouping">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="0,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:mostUsed">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:nameEnd">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:position">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prefix">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="-1153,0" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="-1153,0" />
+        <observation name="min" value="-1153,0" />
+        <observation name="variance" value="-0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:priority">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="-22,923077" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="101,0" />
+        <observation name="min" value="-102,0" />
+        <observation name="variance" value="4070,558544" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_explicitlyImported">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="0,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_knownElement">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="0,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_sameModule">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="2,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="2,0" />
+        <observation name="min" value="2,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_samePsiMember">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="5,0" />
+        <observation name="average" value="0,0" />
+        <observation name="count" value="3,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:query_length">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:result_length">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="4,769231" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="11,0" />
+        <observation name="min" value="2,0" />
+        <observation name="variance" value="4,817158" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sameWords">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:shorter">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:simple">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sorter">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="1,0" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="1,0" />
+        <observation name="min" value="1,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:statics">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="7,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:stats">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="1536,615385" />
+        <observation name="count" value="13,0" />
+        <observation name="max" value="9988,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="7345590,856699" />
+      </dailyData>
+    </factor>
+    <factor id="itemPosition">
+      <dailyData date="3-6-2018">
+        <observation name="0" value="2,0" />
+      </dailyData>
+    </factor>
+    <factor id="mnemonicsUsage">
+      <dailyData date="3-6-2018">
+        <observation name="total" value="2,0" />
+        <observation name="withMnemonics" value="1,0" />
+      </dailyData>
+    </factor>
+    <factor id="prefixLength">
+      <dailyData date="3-6-2018">
+        <observation name="5" value="1,0" />
+        <observation name="6" value="1,0" />
+      </dailyData>
+    </factor>
+    <factor id="timeBetweenTyping">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="138,1" />
+        <observation name="count" value="20,0" />
+      </dailyData>
+    </factor>
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -577,7 +824,8 @@
       <workItem from="1527963383049" duration="7032000" />
       <workItem from="1528019077485" duration="4236000" />
       <workItem from="1528031100717" duration="3395000" />
-      <workItem from="1528037550696" duration="496000" />
+      <workItem from="1528037550696" duration="1116000" />
+      <workItem from="1528044030639" duration="1560000" />
     </task>
     <task id="LOCAL-00001" summary="feat(src): adding files for server rewrite">
       <created>1524879050746</created>
@@ -670,11 +918,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528034480555</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="chore(version): bumped version to 3.0.0&#10;- see https://github.com/mayrmax/collab.io-server/pull/2">
+      <created>1528038066107</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528038066107</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75199000" />
+    <option name="totallyTimeSpent" value="77379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -689,14 +944,14 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.09300477" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.09379968" />
       <window_info id="Structure" order="1" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Favorites" order="2" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
-      <window_info anchor="bottom" x="-558" y="391" width="557" height="1008" id="Run" order="2" type="WINDOWED" weight="0.3299532" />
+      <window_info active="true" anchor="bottom" x="267" y="120" width="1529" height="1076" id="Run" order="2" type="WINDOWED" visible="true" weight="0.3299532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -796,7 +1051,8 @@
     <MESSAGE value="feat(rooms): adjust room logic" />
     <MESSAGE value="feat(rooms): implemented room switching" />
     <MESSAGE value="refactor(todo): removed unnecessary todo items" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(todo): removed unnecessary todo items" />
+    <MESSAGE value="chore(version): bumped version to 3.0.0&#10;- see https://github.com/mayrmax/collab.io-server/pull/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(version): bumped version to 3.0.0&#10;- see https://github.com/mayrmax/collab.io-server/pull/2" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -944,13 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Token.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/LoginUser.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1016,20 +1265,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user" />
+    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/room" />
     <entry file="file://$PROJECT_DIR$/src/models/entities/Room.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1041,6 +1278,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1280">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>
@@ -1079,24 +1323,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Token.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/AuthService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
         </state>
       </provider>
     </entry>

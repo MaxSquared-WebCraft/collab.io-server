@@ -23,7 +23,8 @@ export class AuthService {
   public createToken(user: User): Promise<string> {
     return new Promise((resolve) => {
       const payload: IToken = {
-        name: user.name
+        name: user.name,
+        id: user.id,
       };
       jwt.sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (err, token) => {
         if (err || !token) resolve(null);
