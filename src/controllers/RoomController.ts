@@ -33,13 +33,13 @@ export class RoomController {
   }
 
   @Authorized()
-  @Get()
+  @Get('/id')
   public getRoomId(@QueryParam('name') roomName: string): Promise<string> {
     return this.roomService.getRoomId(roomName);
   }
 
   @Authorized()
-  @Get()
+  @Get('/users')
   public getRoomUsers(@QueryParam('roomId') roomId: string): Promise<User[]> {
     return this.roomService.getUsersFromRoom(roomId);
   }

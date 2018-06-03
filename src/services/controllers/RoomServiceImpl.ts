@@ -23,13 +23,13 @@ export class RoomService implements IRoomService {
   }
 
   private async fetchRoom(roomId: string): Promise<Room> {
-    const room = await this.roomRepository.findOne(roomId);
+    const room = await this.roomRepository.findOne(roomId, { relations: ['users'] });
     if (!room) throw new NotFoundError(`Room with id ${roomId} not found`);
     return room;
   }
 
-  private async fetchUser(userId: string): Promise<User> {
-    const user = await this.userRepository.findOne(userId);
+  private async fetchUser(userId: number): Promise<User> {
+    const user = await this.userRepository.findOne(userId, { relations: ['room'] });
     if (!user) throw new NotFoundError(`User with id ${userId} not found`);
     return user;
   }
@@ -63,24 +63,32 @@ export class RoomService implements IRoomService {
   /* Other service methods */
 
   // TODO: if user is in room remove connection
-  public async addUserToRoom(roomId: string, userId: string): Promise<void> {
+  public async addUserToRoom(roomId: string, userId: number): Promise<void> {
     const user = await this.fetchUser(userId);
     const room = await this.fetchRoom(roomId);
-    room.users.push(user);
-    await this.roomRepository.save(room);
+    const userExistsInRoom = !!room.users.find((u) => u.id === userId);
+    if (!userExistsInRoom) {
+      room.users.push(user);
+      await this.roomRepository.save(room);
+    }
   }
 
-  public async removeUserFromRoom(roomId: string, userId: string): Promise<void> {
+  public async removeUserFromRoom(roomId: string, userId: number): Promise<void> {
     const user = await this.fetchUser(userId);
     const room = await this.fetchRoom(roomId);
     room.users = room.users.filter((actUser) => actUser.id !== user.id);
-    room.users.length > 0
-      ? await this.roomRepository.save(room)
-      : await this.roomRepository.delete(room);
+    if (room.users.length > 0) {
+      await this.roomRepository.save(room);
+    } else {
+      user.room = null;
+      await this.userRepository.save(user);
+      await this.roomRepository.delete(room);
+    }
   }
 
-  public async isUserInRoom(userId: string): Promise<boolean> {
+  public async getRoomFromUser(userId: number): Promise<Room> {
+    this.logger.verbose(`Getting room from user with id ${userId}`);
     const user = await this.fetchUser(userId);
-    return !!user.room;
+    return user ? user.room : null;
   }
 }

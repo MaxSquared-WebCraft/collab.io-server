@@ -11,7 +11,7 @@ import { IRoomService } from '../interfaces/IRoomService';
 
 interface IJoinRoomInfo {
   roomId: string;
-  userId: string;
+  userId: number;
 }
 
 @Service()
@@ -78,23 +78,34 @@ export class SocketIoService {
    */
 
   // TODO: emit errors on socket
-  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (info: IJoinRoomInfo) => {
+  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (jsonInfo: string) => {
 
-    const isUserInRoom = this.roomService.isUserInRoom(info.userId);
+    const info: IJoinRoomInfo = JSON.parse(jsonInfo);
 
-    if (isUserInRoom) {
+    const userRoom = await this.roomService.getRoomFromUser(info.userId);
+
+    if (!!userRoom) {
+
+      if (userRoom.uuid !== info.roomId) {
+        this.socketIoLog(`Removing user with id ${info.userId} from room ${info.roomId}`);
+        await this.roomService.removeUserFromRoom(userRoom.uuid, info.userId);
+      }
+
+      this.socketIoLog('Removing all listeners, leaving all rooms');
       socket.removeAllListeners('message');
       socket.leaveAll();
     }
 
     await this.roomService.addUserToRoom(info.roomId, info.userId);
 
-    socket.join(info.roomId);
+    this.socketIoLog(`Joining room ${info.roomId}, registering message handler`);
 
+    socket.join(info.roomId);
     socket.on('message', this.handleClientMessage(socket, info.roomId));
   };
 
   private readonly handleClientMessage = (socket: socketIo.Socket, roomId: string) => (message: any) => {
+    this.socketIoLog(`Sending message ${message} to room ${roomId}`);
     socket.to(roomId).emit('message', message);
   };
 

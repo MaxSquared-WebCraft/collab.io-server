@@ -1,18 +1,15 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { User } from './User';
 import { v4 as uuid } from 'uuid';
 
 @Entity()
 export class Room {
 
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn()
+  uuid: string;
 
   @Column()
   name: string;
-
-  @Column()
-  uuid: string;
 
   @OneToMany(() => User, (user) => user.room)
   users: User[];
