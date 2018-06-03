@@ -1,12 +1,13 @@
 {
   "name": "collab.io-server",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "author": "Max Zauner",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.229.1",
     "bcryptjs": "^2.4.3",
+    "class-validator": "^0.8.5",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-winston": "^2.5.1",

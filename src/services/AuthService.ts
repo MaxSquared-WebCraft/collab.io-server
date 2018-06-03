@@ -1,9 +1,9 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcryptjs';
 
-import { Action, UnauthorizedError } from 'routing-controllers';
+import { Action, NotFoundError, UnauthorizedError } from 'routing-controllers';
 import { User } from '../models/entities/User';
-import { Token } from '../models/Token';
+import { IToken } from '../models/Token';
 import { Service } from 'typedi';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
@@ -22,7 +22,7 @@ export class AuthService {
 
   public createToken(user: User): Promise<string> {
     return new Promise((resolve) => {
-      const payload: Token = {
+      const payload: IToken = {
         name: user.name
       };
       jwt.sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (err, token) => {
@@ -32,7 +32,7 @@ export class AuthService {
     });
   }
 
-  public verifyToken(token: string): Promise<Token> {
+  public verifyToken(token: string): Promise<IToken> {
     return new Promise((resolve) => {
       jwt.verify(token, this.envService.JwtSecret, (err, decoded) => {
         if (err || !decoded) resolve(null);
@@ -70,7 +70,11 @@ export class AuthService {
 
     this.logger.verbose('Fetching current user', payload);
 
-    return payload ? this.userRepository.findByToken(payload) : null;
+    const user = payload ? await this.userRepository.findByToken(payload) : null;
+
+    if (!user) throw new NotFoundError('User not found');
+
+    return user;
   }
 
 }

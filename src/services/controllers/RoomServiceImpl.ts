@@ -1,13 +1,13 @@
 import { Service, Token } from 'typedi';
 import { Logger } from '../../decorators/Logger';
 import { ILogger } from '../../interfaces/ILogger';
-import { OrmRepository } from 'typeorm-typedi-extensions';
+import { InjectRepository, OrmRepository } from 'typeorm-typedi-extensions';
 import { Room } from '../../models/entities/Room';
-import { v4 as uuid } from 'uuid';
 import { IRoomService } from '../../interfaces/IRoomService';
 import { User } from '../../models/entities/User';
-import { NotFoundError, UnauthorizedError } from 'routing-controllers';
+import { NotFoundError } from 'routing-controllers';
 import { Repository } from 'typeorm';
+import { UserRepository } from '../../repositories/UserRepository';
 
 export const RoomServiceImpl = new Token<RoomService>();
 
@@ -16,30 +16,37 @@ export class RoomService implements IRoomService {
 
   constructor(
     @Logger() private readonly logger: ILogger,
-    @OrmRepository(Room) private readonly roomRepository: Repository<Room>
+    @OrmRepository(Room) private readonly roomRepository: Repository<Room>,
+    @InjectRepository() private readonly userRepository: UserRepository
   ) {
     this.logger.verbose('Initializing Room service');
   }
 
+  private async fetchRoom(roomId: string): Promise<Room> {
+    const room = await this.roomRepository.findOne(roomId, { relations: ['users'] });
+    if (!room) throw new NotFoundError(`Room with id ${roomId} not found`);
+    return room;
+  }
+
+  private async fetchUser(userId: number): Promise<User> {
+    const user = await this.userRepository.findOne(userId, { relations: ['room'] });
+    if (!user) throw new NotFoundError(`User with id ${userId} not found`);
+    return user;
+  }
+
+  /* Rest only methods */
+
   public async createRoom(roomName: string, user: User): Promise<string> {
-
     this.logger.verbose(`Creating room with name ${roomName}`);
-
     if (!user) throw new NotFoundError('User not found');
-
-    const newRoom = new Room();
-    newRoom.name = roomName;
-    newRoom.uuid = uuid();
-    newRoom.user = user;
-
+    const newRoom = new Room(roomName);
     await this.roomRepository.save(newRoom);
-
     return newRoom.uuid;
   }
 
   public async listRooms(): Promise<Room[]> {
     this.logger.verbose('Fetching all available rooms');
-    return this.roomRepository.find();
+    return this.roomRepository.find({ relations: ['users'] });
   }
 
   public async getRoomId(roomName: string): Promise<string> {
@@ -48,14 +55,39 @@ export class RoomService implements IRoomService {
     return room.uuid;
   }
 
-  public async removeRoom(roomName: string, currUser: User): Promise<void> {
-
-    const room = await this.roomRepository.findOne({ name: roomName }, { relations: ['user'] });
-
-    if (!room) throw new NotFoundError(`Room with name '${roomName}' not found.`);
-    if (room.user.id !== currUser.id) throw new UnauthorizedError('You can only remove your own rooms.');
-
-    await this.roomRepository.remove(room);
+  public async getUsersFromRoom(roomId: string): Promise<User[]> {
+    const room = await this.roomRepository.findOne(roomId, { relations: ['users'] });
+    return room.users;
   }
 
+  /* Other service methods */
+
+  public async addUserToRoom(roomId: string, userId: number): Promise<void> {
+    const user = await this.fetchUser(userId);
+    const room = await this.fetchRoom(roomId);
+    const userExistsInRoom = !!room.users.find((u) => u.id === userId);
+    if (!userExistsInRoom) {
+      room.users.push(user);
+      await this.roomRepository.save(room);
+    }
+  }
+
+  public async removeUserFromRoom(roomId: string, userId: number): Promise<void> {
+    const user = await this.fetchUser(userId);
+    const room = await this.fetchRoom(roomId);
+    room.users = room.users.filter((actUser) => actUser.id !== user.id);
+    if (room.users.length > 0) {
+      await this.roomRepository.save(room);
+    } else {
+      user.room = null;
+      await this.userRepository.save(user);
+      await this.roomRepository.delete(room);
+    }
+  }
+
+  public async getRoomFromUser(userId: number): Promise<Room> {
+    this.logger.verbose(`Getting room from user with id ${userId}`);
+    const user = await this.fetchUser(userId);
+    return user ? user.room : null;
+  }
 }

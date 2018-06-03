@@ -4,8 +4,9 @@ import { ILogger } from '../interfaces/ILogger';
 import { Inject } from 'typedi';
 import { UserServiceImpl } from '../services/controllers/UserServiceImpl';
 import { IUserService } from '../interfaces/IUserService';
-import { LoginUser, RegisterUser } from '../models/User';
+import { LoginUser } from '../models/LoginUser';
 import { User } from '../models/entities/User';
+import { RegisterUser } from '../models/RegisterUser';
 
 @JsonController('/user')
 export class UserController {

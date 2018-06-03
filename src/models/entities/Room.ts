@@ -1,18 +1,21 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { User } from './User';
+import { v4 as uuid } from 'uuid';
 
 @Entity()
 export class Room {
 
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ unique: true })
-  name: string;
-
-  @Column()
+  @PrimaryColumn()
   uuid: string;
 
-  @ManyToOne(() => User, (user) => user.rooms)
-  user: User;
+  @Column()
+  name: string;
+
+  @OneToMany(() => User, (user) => user.room)
+  users: User[];
+
+  constructor(name: string) {
+    this.name = name;
+    this.uuid = uuid();
+  }
 }
