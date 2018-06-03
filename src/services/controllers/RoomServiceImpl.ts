@@ -62,7 +62,6 @@ export class RoomService implements IRoomService {
 
   /* Other service methods */
 
-  // TODO: if user is in room remove connection
   public async addUserToRoom(roomId: string, userId: number): Promise<void> {
     const user = await this.fetchUser(userId);
     const room = await this.fetchRoom(roomId);

@@ -63,7 +63,6 @@ export class SocketIoService {
    * These functions handle the connections and disconnections of the clients
    * */
 
-  // TODO: on start application automatically set sockets to correct room
   private readonly connectionHandler = (socket: socketIo.Socket) => {
     this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} connected.`);
     socket.on('room', this.handleJoinRoom(socket));
