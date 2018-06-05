@@ -63,6 +63,7 @@ export class SocketIoService {
    * These functions handle the connections and disconnections of the clients
    * */
 
+  // TODO: maybe pass room information right on connect as query to avoid unnecessary room socket call by client?
   private readonly connectionHandler = (socket: socketIo.Socket) => {
     this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} connected.`);
     socket.on('room', this.handleJoinRoom(socket));
