@@ -9,6 +9,8 @@ export interface IRoomService {
   listRooms: () => Promise<Room[]>;
   getRoomId: (roomName: string) => Promise<string>;
   getUsersFromRoom: (roomId: string) => Promise<User[]>;
+  deleteRoomById: (roomId: string) => Promise<void>;
+  deleteRoomByName: (roomName: string) => Promise<void>;
 
   /* Other service methods */
 

@@ -1109,54 +1109,63 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="278" parent="274" name="PRIMARY">
+    <index id="278" parent="274" name="IDX_535c742a3606d2e3122f441b26">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="279" parent="274" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uuid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="279" parent="275" name="id">
+    <key id="280" parent="274" name="IDX_535c742a3606d2e3122f441b26">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>IDX_535c742a3606d2e3122f441b26</UnderlyingIndexName>
+    </key>
+    <column id="281" parent="275" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="275" name="name">
+    <column id="282" parent="275" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="275" name="pwHash">
+    <column id="283" parent="275" name="pwHash">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="275" name="roomUuid">
+    <column id="284" parent="275" name="roomUuid">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="283" parent="275" name="IDX_065d4d8f3b5adb4a08841eae3c">
+    <index id="285" parent="275" name="IDX_065d4d8f3b5adb4a08841eae3c">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="284" parent="275" name="FK_b04c26416d0b6ccef4fc46bfcae">
+    <index id="286" parent="275" name="FK_b04c26416d0b6ccef4fc46bfcae">
       <ColNames>roomUuid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="285" parent="275" name="PRIMARY">
+    <key id="287" parent="275" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="286" parent="275" name="IDX_065d4d8f3b5adb4a08841eae3c">
+    <key id="288" parent="275" name="IDX_065d4d8f3b5adb4a08841eae3c">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>IDX_065d4d8f3b5adb4a08841eae3c</UnderlyingIndexName>
     </key>
-    <foreign-key id="287" parent="275" name="FK_b04c26416d0b6ccef4fc46bfcae">
+    <foreign-key id="289" parent="275" name="FK_b04c26416d0b6ccef4fc46bfcae">
       <ColNames>roomUuid</ColNames>
       <RefSchemaName>collabio</RefSchemaName>
       <RefTableName>room</RefTableName>

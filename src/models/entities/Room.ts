@@ -8,7 +8,7 @@ export class Room {
   @PrimaryColumn()
   uuid: string;
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 
   @OneToMany(() => User, (user) => user.room)

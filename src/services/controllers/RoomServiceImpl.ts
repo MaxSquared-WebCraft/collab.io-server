@@ -56,8 +56,22 @@ export class RoomService implements IRoomService {
   }
 
   public async getUsersFromRoom(roomId: string): Promise<User[]> {
-    const room = await this.roomRepository.findOne(roomId, { relations: ['users'] });
+    const room = await this.fetchRoom(roomId);
     return room.users;
+  }
+
+  public async deleteRoomById(roomId: string): Promise<void> {
+    const room = await this.fetchRoom(roomId);
+    room.users = [];
+    await this.roomRepository.save(room);
+    await this.roomRepository.remove(room);
+  }
+
+  public async deleteRoomByName(name: string): Promise<void> {
+    const room = await this.roomRepository.findOne({ where: { name }, relations: ['users'] });
+    room.users = [];
+    await this.roomRepository.save(room);
+    await this.roomRepository.remove(room);
   }
 
   /* Other service methods */
