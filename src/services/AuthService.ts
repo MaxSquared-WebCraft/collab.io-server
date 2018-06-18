@@ -37,7 +37,6 @@ export class AuthService {
       verify(token, this.envService.JwtSecret, (err, decoded) => {
         if (err || !decoded) resolve(null);
         const decToken = decoded as IToken;
-        this.logger.debug('act token', decToken);
         resolve(decToken);
       });
     });
@@ -72,7 +71,7 @@ export class AuthService {
 
     this.logger.verbose('Fetching current user', payload);
 
-    const user = payload ? await this.userRepository.findByToken(payload) : null;
+    const user = payload ? await this.userRepository.findOneByTokenWithPwHash(payload) : null;
 
     if (!user) throw new NotFoundError('User not found');
 

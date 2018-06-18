@@ -48,8 +48,6 @@ export class SocketIoService {
     const token = socket.handshake.query.auth;
     const data = await this.authService.verifyToken(token);
 
-    this.logger.debug('token', token);
-
     if (!data) {
       this.socketIoLog('Client not authorized');
       next(new UnauthorizedError());

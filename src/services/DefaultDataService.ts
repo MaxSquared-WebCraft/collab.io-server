@@ -3,18 +3,18 @@ import * as bcrypt from 'bcryptjs';
 import { Service } from 'typedi';
 import { ILogger } from '../interfaces/ILogger';
 import { Logger } from '../decorators/Logger';
-import { OrmRepository } from 'typeorm-typedi-extensions';
-import { Repository } from 'typeorm';
+import { InjectRepository } from 'typeorm-typedi-extensions';
 import { User } from '../models/entities/User';
 import { EnvService } from './EnvService';
 import { AuthService } from './AuthService';
+import { UserRepository } from '../repositories/UserRepository';
 
 @Service()
 export class DefaultDataService {
 
   constructor(
     @Logger() private readonly logger: ILogger,
-    @OrmRepository(User) private readonly userRepository: Repository<User>,
+    @InjectRepository() private readonly userRepository: UserRepository,
     private readonly envService: EnvService,
     private readonly authService: AuthService,
   ) { }
@@ -26,7 +26,7 @@ export class DefaultDataService {
 
   private async addDefaultUser(): Promise<any> {
 
-    const user: User = await this.userRepository.findOne({ name: this.envService.DefaultUserName });
+    const user: User = await this.userRepository.findOneByNameWithPwHash(this.envService.DefaultUserName);
 
     if (user) {
       this.checkIfStillDefaultPassword(user);

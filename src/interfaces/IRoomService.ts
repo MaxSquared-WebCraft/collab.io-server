@@ -5,9 +5,10 @@ export interface IRoomService {
 
   /* Rest only methods */
 
-  createRoom: (roomName: string, currUser: User) => Promise<string>;
+  createRoom: (roomName: string) => Promise<Room>;
   listRooms: () => Promise<Room[]>;
   getRoomId: (roomName: string) => Promise<string>;
+  getRoomByName: (roomName: string) => Promise<Room>;
   getUsersFromRoom: (roomId: string) => Promise<User[]>;
   deleteRoomById: (roomId: string) => Promise<void>;
   deleteRoomByName: (roomName: string) => Promise<void>;

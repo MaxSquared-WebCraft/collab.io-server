@@ -19,11 +19,8 @@ export class RoomController {
 
   @Authorized()
   @Post()
-  public addRoom(
-    @CurrentUser() user: User,
-    @BodyParam('name') roomName: string
-  ): Promise<string> {
-    return this.roomService.createRoom(roomName, user);
+  public addRoom(@BodyParam('name') roomName: string): Promise<Room> {
+    return this.roomService.createRoom(roomName);
   }
 
   @Authorized()
@@ -48,6 +45,12 @@ export class RoomController {
   @Get('/id')
   public getRoomId(@QueryParam('name') roomName: string): Promise<string> {
     return this.roomService.getRoomId(roomName);
+  }
+
+  @Authorized()
+  @Get('/name')
+  public getRoom(@QueryParam('name') roomName: string): Promise<Room> {
+    return this.roomService.getRoomByName(roomName);
   }
 
   @Authorized()
