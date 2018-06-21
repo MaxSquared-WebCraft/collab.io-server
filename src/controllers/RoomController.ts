@@ -54,6 +54,12 @@ export class RoomController {
   }
 
   @Authorized()
+  @Get()
+  public getRoomOfUser(@CurrentUser() user: User): Promise<Room> {
+    return this.roomService.getRoomFromUser(user.id);
+  }
+
+  @Authorized()
   @Get('/users')
   public getRoomUsers(@QueryParam('roomId') roomId: string): Promise<User[]> {
     return this.roomService.getUsersFromRoom(roomId);
