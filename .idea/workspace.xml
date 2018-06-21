@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="feat(rooms): adapt room logic">
+    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="feat(rooms): WIP: refine room logic">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aed30302-8027-43f4-9489-10a083876dd4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aed30302-8027-43f4-9489-10a083876dd4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/RoomController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/RoomController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/EnvService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/EnvService.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,26 +35,6 @@
         <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="room: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -61,8 +44,10 @@
         <counts>
           <entry key="js" value="2" />
           <entry key="json" value="2" />
-          <entry key="ts" value="25" />
+          <entry key="sql" value="1" />
+          <entry key="ts" value="27" />
           <entry key="user" value="1" />
+          <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -70,19 +55,23 @@
           <entry key="Database Element" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="2" />
-          <entry key="TypeScript" value="25" />
+          <entry key="Scratch" value="1" />
+          <entry key="TypeScript" value="27" />
+          <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ts" value="3250" />
-          <entry key="txt" value="34" />
+          <entry key="ts" value="3259" />
+          <entry key="txt" value="77" />
+          <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="34" />
-          <entry key="TypeScript" value="3250" />
+          <entry key="PLAIN_TEXT" value="77" />
+          <entry key="TypeScript" value="3259" />
+          <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
@@ -106,11 +95,29 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/controllers/RoomController.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="528">
-                  <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+                <state relative-caret-position="80">
+                  <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -123,16 +130,7 @@
             <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="560">
-                  <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
+                  <caret line="35" selection-start-line="35" selection-end-line="35" />
                 </state>
               </provider>
             </entry>
@@ -179,7 +177,6 @@
       <list>
         <option value="$PROJECT_DIR$/package (2).json" />
         <option value="$PROJECT_DIR$/src/services/controllers/UserController.ts" />
-        <option value="$PROJECT_DIR$/src/services/EnvService.ts" />
         <option value="$PROJECT_DIR$/src/config/Application.ts" />
         <option value="$PROJECT_DIR$/src/interfaces/IServer.ts" />
         <option value="$PROJECT_DIR$/src/services/MysqlDbServiceImpl.ts" />
@@ -193,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/interfaces/IUserService.ts" />
         <option value="$PROJECT_DIR$/tslint.json" />
         <option value="$PROJECT_DIR$/src/models/RoomData.ts" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/src/models/JoinRoomData.ts" />
         <option value="$PROJECT_DIR$/src/controllers/UserController.ts" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -208,6 +204,8 @@
         <option value="$PROJECT_DIR$/src/interfaces/IRoomService.ts" />
         <option value="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/controllers/RoomController.ts" />
+        <option value="$PROJECT_DIR$/src/services/EnvService.ts" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
       </list>
     </option>
   </component>
@@ -336,6 +334,9 @@
         <observation name="explicitSelect" value="6.0" />
         <observation name="typedSelect" value="11.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="cancelled" value="39.0" />
+      </dailyData>
     </factor>
     <factor id="completionType">
       <dailyData date="19-6-2018">
@@ -345,6 +346,9 @@
     <factor id="completionUsage">
       <dailyData date="19-6-2018">
         <observation name="count" value="54.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="count" value="39.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -532,6 +536,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -676,7 +681,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -693,7 +697,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
@@ -715,7 +719,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start-dev">
+  <component name="RunManager" selected="Docker.collab-db">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -736,7 +740,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="collab-db" type="docker-deploy" factoryName="docker-compose.yml" singleton="true" server-name="Docker">
+    <configuration name="collab-db" type="docker-deploy" factoryName="docker-compose.yml" singleton="true" server-name="WindowsDocker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="sourceFilePath" value="docker-compose.yml" />
@@ -811,7 +815,8 @@
       <workItem from="1529424435560" duration="2038000" />
       <workItem from="1529448499719" duration="669000" />
       <workItem from="1529513719983" duration="1242000" />
-      <workItem from="1529571802218" duration="1346000" />
+      <workItem from="1529571802218" duration="1389000" />
+      <workItem from="1529585044247" duration="2218000" />
     </task>
     <task id="LOCAL-00001" summary="feat(src): adding files for server rewrite">
       <created>1524879050746</created>
@@ -918,11 +923,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529361416023</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat(rooms): WIP: refine room logic">
+      <created>1529574701208</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1529574701208</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98746000" />
+    <option name="totallyTimeSpent" value="101007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -937,7 +949,7 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.16732909" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.16852146" />
       <window_info id="Structure" order="1" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Favorites" order="2" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Designer" order="3" />
@@ -1056,7 +1068,8 @@
     <MESSAGE value="refactor(todo): removed unnecessary todo items" />
     <MESSAGE value="feat(rooms): refining room logic" />
     <MESSAGE value="feat(rooms): adapt room logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(rooms): adapt room logic" />
+    <MESSAGE value="feat(rooms): WIP: refine room logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(rooms): WIP: refine room logic" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1079,13 +1092,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decorators/Logger.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/config/Application.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1134,7 +1140,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/dataSources.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/aed30302-8027-43f4-9489-10a083876dd4/console.sql" />
     <entry file="file://$PROJECT_DIR$/.idea/dataSources/aed30302-8027-43f4-9489-10a083876dd4.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1199,13 +1204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaces/IUserService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1223,13 +1221,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/services/controllers/RoomServiceImpl.js" />
-    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/room" />
     <entry file="file://$PROJECT_DIR$/dbConfig.json" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1280,13 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/DefaultDataService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/entities/Room.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1322,6 +1307,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user" />
     <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
@@ -1329,24 +1315,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/aed30302-8027-43f4-9489-10a083876dd4/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/DefaultDataService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/RoomController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+        <state relative-caret-position="80">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="144">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

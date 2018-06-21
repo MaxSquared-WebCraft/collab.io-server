@@ -13,7 +13,7 @@ export class EnvService {
   private readonly env = process.env.NODE_ENV || Environment.development;
   private readonly port = process.env.APP_PORT || 8080;
 
-  private readonly dbHost = process.env.DB_HOST || '192.168.99.100';
+  private readonly dbHost = process.env.DB_HOST || 'localhost';
   private readonly dbPort = process.env.DB_PORT || '3306';
   private readonly dbName = process.env.DB_NAME || 'collabio';
   private readonly dbUsername = process.env.DB_USERNAME || 'user';
