@@ -22,21 +22,24 @@ export class RoomService implements IRoomService {
     this.logger.verbose('Initializing Room service');
   }
 
-  private async fetchUserByIdWithRoom(userId: number): Promise<User> {
+  private async fetchUserByIdWithRoom(userId: number, suppressError?: boolean): Promise<User> {
     const user = await this.userRepository.findOneByIdWithRoom(userId);
-    if (!user) throw new NotFoundError(`User with id ${userId} not found`);
+    if (suppressError) this.logger.verbose('suppressing errors in fetchUserByIdWithRoom.');
+    if (!user && !suppressError) throw new NotFoundError(`User with id ${userId} not found`);
     return user;
   }
 
-  private async fetchRoomByIdWithUsers(roomId: string): Promise<Room> {
+  private async fetchRoomByIdWithUsers(roomId: string, suppressError?: boolean): Promise<Room> {
     const room = await this.roomRepository.findOneByIdWithUsers(roomId);
-    if (!room) throw new NotFoundError(`Room with id ${roomId} not found`);
+    if (suppressError) this.logger.verbose('suppressing errors in fetchRoomByIdWithUsers.');
+    if (!room && !suppressError) throw new NotFoundError(`Room with id ${roomId} not found`);
     return room;
   }
 
-  private async fetchRoomByNameWithUsers(roomName: string): Promise<Room> {
+  private async fetchRoomByNameWithUsers(roomName: string, suppressError?: boolean): Promise<Room> {
     const room = await this.roomRepository.findOneByNameWitUsers(roomName);
-    if (!room) throw new NotFoundError(`Room with name ${roomName} not found`);
+    if (suppressError) this.logger.verbose('suppressing errors in fetchRoomByNameWithUsers.');
+    if (!room && !suppressError) throw new NotFoundError(`Room with name ${roomName} not found`);
     return room;
   }
 
@@ -86,9 +89,10 @@ export class RoomService implements IRoomService {
 
   /* Other service methods */
 
-  public async addUserToRoom(roomId: string, userId: number): Promise<void> {
-    const user = await this.fetchUserByIdWithRoom(userId);
-    const room = await this.fetchRoomByIdWithUsers(roomId);
+  public async addUserToRoom(roomId: string, userId: number, suppressError?: boolean): Promise<void> {
+    const user = await this.fetchUserByIdWithRoom(userId, suppressError);
+    const room = await this.fetchRoomByIdWithUsers(roomId, suppressError);
+    this.logger.verbose('add user', user, 'to room', room);
     const userExistsInRoom = !!room.users.find((u) => u.id === userId);
     if (!userExistsInRoom) {
       room.users.push(user);
@@ -109,9 +113,9 @@ export class RoomService implements IRoomService {
     }
   }
 
-  public async getRoomFromUser(userId: number): Promise<Room> {
+  public async getRoomFromUser(userId: number, suppressError?: boolean): Promise<Room> {
     this.logger.verbose(`Getting room from user with id ${userId}`);
-    const user = await this.fetchUserByIdWithRoom(userId);
+    const user = await this.fetchUserByIdWithRoom(userId, suppressError);
     return user ? user.room : null;
   }
 }

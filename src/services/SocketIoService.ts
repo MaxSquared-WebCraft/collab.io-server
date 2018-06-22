@@ -76,11 +76,9 @@ export class SocketIoService {
    */
 
   // TODO: emit errors on socket
-  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (jsonInfo: string) => {
+  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (info: IJoinRoomInfo) => {
 
-    const info: IJoinRoomInfo = JSON.parse(jsonInfo);
-
-    const userRoom = await this.roomService.getRoomFromUser(info.userId);
+    const userRoom = await this.roomService.getRoomFromUser(info.userId, true);
 
     if (!!userRoom) {
 
@@ -94,7 +92,7 @@ export class SocketIoService {
       socket.leaveAll();
     }
 
-    await this.roomService.addUserToRoom(info.roomId, info.userId);
+    await this.roomService.addUserToRoom(info.roomId, info.userId, true);
 
     this.socketIoLog(`Joining room ${info.roomId}, registering message handler`);
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="feat(rooms): WIP: refine room logic">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="45594cfb-1705-4b19-998f-96b3ab064601" name="Default" comment="feat(db): switch to docker windoofs">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/aed30302-8027-43f4-9489-10a083876dd4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aed30302-8027-43f4-9489-10a083876dd4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/EnvService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/EnvService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/IRoomService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IRoomService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/SocketIoService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/SocketIoService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +35,26 @@
         <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="room: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="collab.io-db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="collabio: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -42,10 +62,10 @@
     <session id="2015531177">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="2" />
+          <entry key="js" value="4" />
           <entry key="json" value="2" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="27" />
+          <entry key="ts" value="29" />
           <entry key="user" value="1" />
           <entry key="yml" value="1" />
         </counts>
@@ -54,23 +74,23 @@
         <counts>
           <entry key="Database Element" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JavaScript" value="4" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="27" />
+          <entry key="TypeScript" value="29" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ts" value="3259" />
-          <entry key="txt" value="77" />
+          <entry key="ts" value="3818" />
+          <entry key="txt" value="116" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="77" />
-          <entry key="TypeScript" value="3259" />
+          <entry key="PLAIN_TEXT" value="116" />
+          <entry key="TypeScript" value="3818" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
@@ -86,11 +106,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="912">
-                  <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+                <state relative-caret-position="532">
+                  <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
                 </state>
               </provider>
             </entry>
@@ -104,20 +133,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+                <state relative-caret-position="656">
+                  <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
@@ -129,8 +149,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="35" selection-start-line="35" selection-end-line="35" />
+                <state relative-caret-position="496">
+                  <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
                 </state>
               </provider>
             </entry>
@@ -159,6 +179,8 @@
       <find>checkifstil</find>
       <find>User from</find>
       <find>logger.debug</find>
+      <find>getRoomFromUser</find>
+      <find>adduser</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -199,13 +221,13 @@
         <option value="$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/services/DefaultDataService.ts" />
         <option value="$PROJECT_DIR$/src/services/AuthService.ts" />
-        <option value="$PROJECT_DIR$/src/services/SocketIoService.ts" />
         <option value="$PROJECT_DIR$/src/models/entities/Room.ts" />
-        <option value="$PROJECT_DIR$/src/interfaces/IRoomService.ts" />
-        <option value="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" />
         <option value="$PROJECT_DIR$/src/controllers/RoomController.ts" />
         <option value="$PROJECT_DIR$/src/services/EnvService.ts" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/src/interfaces/IRoomService.ts" />
+        <option value="$PROJECT_DIR$/src/services/SocketIoService.ts" />
+        <option value="$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts" />
       </list>
     </option>
   </component>
@@ -238,20 +260,33 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="false" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="29.0" />
+        <observation name="false" value="4.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:liftShorterClasses">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:middleMatching">
       <dailyData date="19-6-2018">
         <observation name="false" value="17.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="false" value="33.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:nonGeneric">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_inResolveScope">
@@ -259,11 +294,20 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="true" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="true" value="3.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_openedInEditor">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="15.0" />
         <observation name="true" value="2.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="false" value="2.0" />
+        <observation name="true" value="1.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameDirectory">
@@ -272,11 +316,20 @@
         <observation name="false" value="1.0" />
         <observation name="true" value="1.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="false" value="2.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameLogicalRoot">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="15.0" />
         <observation name="false" value="2.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="false" value="3.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sdkOrLibrary">
@@ -284,25 +337,41 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="false" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="false" value="3.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:templates">
       <dailyData date="19-6-2018">
         <observation name="false" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="false" value="33.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:accessible">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:expectedType">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:kind">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
@@ -310,11 +379,19 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="unknown" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="unknown" value="3.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_javaInheritance">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="15.0" />
         <observation name="null" value="2.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="null" value="3.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_referenceList">
@@ -322,10 +399,17 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="unknown" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="unknown" value="3.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:recursion">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="completionFinishedType">
@@ -335,12 +419,17 @@
         <observation name="typedSelect" value="11.0" />
       </dailyData>
       <dailyData date="21-6-2018">
-        <observation name="cancelled" value="39.0" />
+        <observation name="cancelled" value="309.0" />
+        <observation name="explicitSelect" value="17.0" />
+        <observation name="typedSelect" value="16.0" />
       </dailyData>
     </factor>
     <factor id="completionType">
       <dailyData date="19-6-2018">
         <observation name="BASIC" value="21.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="BASIC" value="60.0" />
       </dailyData>
     </factor>
     <factor id="completionUsage">
@@ -348,7 +437,7 @@
         <observation name="count" value="54.0" />
       </dailyData>
       <dailyData date="21-6-2018">
-        <observation name="count" value="39.0" />
+        <observation name="count" value="342.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -356,6 +445,14 @@
         <observation name="UNDEFINED" value="15.0" />
         <observation name="average" value="0.0" />
         <observation name="count" value="3.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="29.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="7.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -370,15 +467,29 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="29.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="7.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:mostUsed">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:nameEnd">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:position">
@@ -389,6 +500,13 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.058895" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="0.153846" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="5.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.372585" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prefix">
       <dailyData date="19-6-2018">
@@ -398,6 +516,13 @@
         <observation name="min" value="-1153.0" />
         <observation name="variance" value="39322.133513" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="-1088.723077" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1203.0" />
+        <observation name="variance" value="46439.145709" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:priority">
       <dailyData date="19-6-2018">
@@ -406,6 +531,13 @@
         <observation name="max" value="101.0" />
         <observation name="min" value="-102.0" />
         <observation name="variance" value="2955.086443" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="-52.353846" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="101.0" />
+        <observation name="min" value="-103.0" />
+        <observation name="variance" value="3397.917555" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_explicitlyImported">
@@ -417,12 +549,28 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="5000.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="average" value="60.0" />
+        <observation name="count" value="5.0" />
+        <observation name="max" value="300.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="4900.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_knownElement">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="15.0" />
         <observation name="average" value="0.0" />
         <observation name="count" value="3.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="5.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -437,12 +585,28 @@
         <observation name="min" value="2.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="average" value="2.0" />
+        <observation name="count" value="5.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="2.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_samePsiMember">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="15.0" />
         <observation name="average" value="0.0" />
         <observation name="count" value="3.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="30.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="5.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -456,6 +620,13 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:result_length">
       <dailyData date="19-6-2018">
@@ -465,20 +636,36 @@
         <observation name="min" value="2.0" />
         <observation name="variance" value="8.034337" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="8.630769" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="16.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="13.010081" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:sameWords">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:shorter">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:simple">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:sorter">
@@ -489,10 +676,20 @@
         <observation name="min" value="1.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:statics">
       <dailyData date="19-6-2018">
         <observation name="UNDEFINED" value="17.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="UNDEFINED" value="33.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:stats">
@@ -503,17 +700,32 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="14210636.787261" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="6987.661538" />
+        <observation name="count" value="65.0" />
+        <observation name="max" value="10000.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="15430218.666495" />
+      </dailyData>
     </factor>
     <factor id="itemPosition">
       <dailyData date="19-6-2018">
         <observation name="0" value="4.0" />
         <observation name="1" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="0" value="16.0" />
+        <observation name="5" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="mnemonicsUsage">
       <dailyData date="19-6-2018">
         <observation name="total" value="5.0" />
         <observation name="withMnemonics" value="0.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="total" value="14.0" />
+        <observation name="withMnemonics" value="4.0" />
       </dailyData>
     </factor>
     <factor id="prefixLength">
@@ -523,11 +735,26 @@
         <observation name="4" value="2.0" />
         <observation name="5" value="2.0" />
       </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="0" value="2.0" />
+        <observation name="1" value="1.0" />
+        <observation name="2" value="1.0" />
+        <observation name="3" value="1.0" />
+        <observation name="4" value="3.0" />
+        <observation name="5" value="2.0" />
+        <observation name="6" value="5.0" />
+        <observation name="7" value="1.0" />
+        <observation name="8" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="timeBetweenTyping">
       <dailyData date="19-6-2018">
         <observation name="average" value="126.5" />
         <observation name="count" value="44.0" />
+      </dailyData>
+      <dailyData date="21-6-2018">
+        <observation name="average" value="162.232" />
+        <observation name="count" value="125.0" />
       </dailyData>
     </factor>
   </component>
@@ -536,7 +763,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -609,6 +835,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -719,12 +946,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.collab-db">
+  <component name="RunManager" selected="Compound.start-all">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="start-all" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <toRun type="docker-deploy" name="collab-db" />
+      <toRun type="js.build_tools.npm" name="start-dev" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -762,6 +994,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Compound.start-all" />
       <item itemvalue="Docker.collab-db" />
       <item itemvalue="npm.start-dev" />
     </list>
@@ -816,7 +1049,9 @@
       <workItem from="1529448499719" duration="669000" />
       <workItem from="1529513719983" duration="1242000" />
       <workItem from="1529571802218" duration="1389000" />
-      <workItem from="1529585044247" duration="2218000" />
+      <workItem from="1529585044247" duration="2367000" />
+      <workItem from="1529599959099" duration="4328000" />
+      <workItem from="1529615459137" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="feat(src): adding files for server rewrite">
       <created>1524879050746</created>
@@ -930,11 +1165,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529574701208</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat(db): switch to docker windoofs">
+      <created>1529587285086</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1529587285086</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101007000" />
+    <option name="totallyTimeSpent" value="106777000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -949,14 +1191,14 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.16852146" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921995" visible="true" weight="0.1709062" />
       <window_info id="Structure" order="1" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Favorites" order="2" sideWeight="0.50078005" side_tool="true" weight="0.10691574" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
-      <window_info anchor="bottom" x="-581" y="391" width="580" height="1008" id="Run" order="2" weight="0.3299532" />
+      <window_info anchor="bottom" x="0" y="23" width="2560" height="1377" id="Run" order="2" type="WINDOWED" weight="0.3299532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1069,20 +1311,14 @@
     <MESSAGE value="feat(rooms): refining room logic" />
     <MESSAGE value="feat(rooms): adapt room logic" />
     <MESSAGE value="feat(rooms): WIP: refine room logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(rooms): WIP: refine room logic" />
+    <MESSAGE value="feat(db): switch to docker windoofs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(db): switch to docker windoofs" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/typeorm/repository/Repository.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1640">
-          <caret line="117" column="81" selection-start-line="117" selection-start-column="81" selection-end-line="117" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/routing-controllers/decorator/Authorized.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1220,7 +1456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/services/controllers/RoomServiceImpl.js" />
     <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/room" />
     <entry file="file://$PROJECT_DIR$/dbConfig.json" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -1241,13 +1476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1279,13 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/controllers/UserServiceImpl.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -1308,20 +1529,6 @@
       </provider>
     </entry>
     <entry file="das://aed30302-8027-43f4-9489-10a083876dd4/schema/collabio/table/user" />
-    <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/aed30302-8027-43f4-9489-10a083876dd4/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1332,6 +1539,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/services/SocketIoService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/services/controllers/RoomServiceImpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/SocketIoService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/IRoomService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/RoomController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1339,17 +1588,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="656">
+          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/EnvService.ts">
+    <entry file="file://$PROJECT_DIR$/src/services/controllers/RoomServiceImpl.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="496">
+          <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -15,7 +15,7 @@ export interface IRoomService {
 
   /* Other service methods */
 
-  addUserToRoom: (roomId: string, userId: number) => Promise<void>;
+  addUserToRoom: (roomId: string, userId: number, suppressError?: boolean) => Promise<void>;
   removeUserFromRoom: (roomId: string, userId: number) => Promise<void>;
-  getRoomFromUser: (userId: number) => Promise<Room>;
+  getRoomFromUser: (userId: number, suppressError?: boolean) => Promise<Room>;
 }
