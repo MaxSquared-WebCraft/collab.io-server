@@ -101,7 +101,7 @@ export class SocketIoService {
   };
 
   private readonly handleClientMessage = (socket: socketIo.Socket, roomId: string) => (message: any) => {
-    this.socketIoLog(`Sending message ${message} to room ${roomId}`);
+    this.socketIoLog(`Sending message`, message, `to room ${roomId}`);
     socket.to(roomId).emit('message', message);
   };
 
