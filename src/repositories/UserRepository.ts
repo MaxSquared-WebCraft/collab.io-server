@@ -7,7 +7,21 @@ import { Service } from 'typedi';
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
 
-  findByToken(token: IToken) {
-    return this.findOne({ name: token.name });
+  public findOneByNameWithPwHash(name: string) {
+    return this
+      .createQueryBuilder('user')
+      .select('user.pwHash')
+      .addSelect('user.id')
+      .addSelect('user.name')
+      .where('user.name = :name', { name })
+      .getOne();
+  }
+
+  public findOneByTokenWithPwHash(token: IToken) {
+    return this.findOneByNameWithPwHash(token.name);
+  }
+
+  public findOneByIdWithRoom(userId: number) {
+    return this.findOne(userId, { relations: ['room'] });
   }
 }

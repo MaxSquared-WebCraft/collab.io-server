@@ -10,7 +10,7 @@ export class User {
   @Column({ unique: true })
   name: string;
 
-  @Column()
+  @Column({ select: false })
   pwHash: string;
 
   @ManyToOne(() => Room, (room) => room.users)

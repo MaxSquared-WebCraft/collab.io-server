@@ -1,6 +1,4 @@
-import * as jwt from 'jsonwebtoken';
-import * as bcrypt from 'bcryptjs';
-
+import { sign, verify } from 'jsonwebtoken';
 import { Action, NotFoundError, UnauthorizedError } from 'routing-controllers';
 import { User } from '../models/entities/User';
 import { IToken } from '../models/Token';
@@ -10,6 +8,7 @@ import { Logger } from '../decorators/Logger';
 import { EnvService } from './EnvService';
 import { InjectRepository } from 'typeorm-typedi-extensions';
 import { UserRepository } from '../repositories/UserRepository';
+import { genSalt, hash } from 'bcryptjs';
 
 @Service()
 export class AuthService {
@@ -23,9 +22,10 @@ export class AuthService {
   public createToken(user: User): Promise<string> {
     return new Promise((resolve) => {
       const payload: IToken = {
-        name: user.name
+        name: user.name,
+        id: user.id,
       };
-      jwt.sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (err, token) => {
+      sign(payload, this.envService.JwtSecret, { expiresIn: '1d' }, (err, token) => {
         if (err || !token) resolve(null);
         else resolve(token);
       });
@@ -34,17 +34,18 @@ export class AuthService {
 
   public verifyToken(token: string): Promise<IToken> {
     return new Promise((resolve) => {
-      jwt.verify(token, this.envService.JwtSecret, (err, decoded) => {
+      verify(token, this.envService.JwtSecret, (err, decoded) => {
         if (err || !decoded) resolve(null);
-        resolve(decoded);
+        const decToken = decoded as IToken;
+        resolve(decToken);
       });
     });
   }
 
   public async createPwHash(password: string): Promise<string> {
     this.logger.verbose('Creating password hash');
-    const salt = await bcrypt.genSalt(10);
-    return bcrypt.hash(password, salt);
+    const salt = await genSalt(10);
+    return hash(password, salt);
   }
 
   // this needs to be class field with arrow function as the function is passed somewhere else
@@ -70,7 +71,7 @@ export class AuthService {
 
     this.logger.verbose('Fetching current user', payload);
 
-    const user = payload ? await this.userRepository.findByToken(payload) : null;
+    const user = payload ? await this.userRepository.findOneByTokenWithPwHash(payload) : null;
 
     if (!user) throw new NotFoundError('User not found');
 

@@ -1,4 +1,4 @@
-import { Authorized, BodyParam, CurrentUser, Get, JsonController, Post, QueryParam } from 'routing-controllers';
+import { Authorized, BodyParam, CurrentUser, Delete, Get, JsonController, Post, QueryParam } from 'routing-controllers';
 import { Logger } from '../decorators/Logger';
 import { ILogger } from '../interfaces/ILogger';
 import { User } from '../models/entities/User';
@@ -19,11 +19,20 @@ export class RoomController {
 
   @Authorized()
   @Post()
-  public addRoom(
-    @CurrentUser() user: User,
-    @BodyParam('name') roomName: string
-  ): Promise<string> {
-    return this.roomService.createRoom(roomName, user);
+  public addRoom(@BodyParam('name') roomName: string): Promise<Room> {
+    return this.roomService.createRoom(roomName);
+  }
+
+  @Authorized()
+  @Delete('/id')
+  public removeRoomById(@QueryParam('id') id: string): Promise<void> {
+    return this.roomService.deleteRoomById(id);
+  }
+
+  @Authorized()
+  @Delete('/name')
+  public removeRoomByName(@QueryParam('name') name: string): Promise<void> {
+    return this.roomService.deleteRoomByName(name);
   }
 
   @Authorized()
@@ -36,6 +45,18 @@ export class RoomController {
   @Get('/id')
   public getRoomId(@QueryParam('name') roomName: string): Promise<string> {
     return this.roomService.getRoomId(roomName);
+  }
+
+  @Authorized()
+  @Get('/name')
+  public getRoom(@QueryParam('name') roomName: string): Promise<Room> {
+    return this.roomService.getRoomByName(roomName);
+  }
+
+  @Authorized()
+  @Get()
+  public getRoomOfUser(@CurrentUser() user: User): Promise<Room> {
+    return this.roomService.getRoomFromUser(user.id);
   }
 
   @Authorized()

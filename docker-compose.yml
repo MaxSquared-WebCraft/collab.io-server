@@ -2,7 +2,7 @@ version: '3'
 
 services:
   collab.io-db-dev:
-    image: mysql:8.0
+    image: mysql:8.0.3
     ports:
       - 3306:3306
     environment:

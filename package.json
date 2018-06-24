@@ -5,6 +5,7 @@
   "author": "Max Zauner",
   "license": "MIT",
   "dependencies": {
+    "@types/jsonwebtoken": "^7.2.7",
     "aws-sdk": "^2.229.1",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.8.5",

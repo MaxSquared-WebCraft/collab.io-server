@@ -8,57 +8,64 @@ export enum Environment {
 @Service()
 export class EnvService {
 
-  private readonly _env = process.env.NODE_ENV || Environment.development;
-  private readonly _port = process.env.APP_PORT || 8080;
+  private readonly jwtSecret: Buffer;
 
-  private readonly _dbHost = process.env.DB_HOST || '192.168.99.100';
-  private readonly _dbPort = process.env.DB_PORT || '3306';
-  private readonly _dbName = process.env.DB_NAME || 'collabio';
-  private readonly _dbUsername = process.env.DB_USERNAME || 'user';
-  private readonly _dbPassword = process.env.DB_PASSWORD || 'password';
+  private readonly env = process.env.NODE_ENV || Environment.development;
+  private readonly port = process.env.APP_PORT || 8080;
 
-  private readonly _jwtSecret: string = process.env.JWT_SECRET || 'StandardDevelopmentSecret';
+  private readonly dbHost = process.env.DB_HOST || 'localhost';
+  private readonly dbPort = process.env.DB_PORT || '3306';
+  private readonly dbName = process.env.DB_NAME || 'collabio';
+  private readonly dbUsername = process.env.DB_USERNAME || 'user';
+  private readonly dbPassword = process.env.DB_PASSWORD || 'password';
 
-  public readonly _defaultUserName: string = process.env.DEF_USER_NAME || 'defaultRootUser';
-  public readonly _defaultUserPassword: string = process.env.DEF_USER_PASSWORD || 'defaultRootUserPassword';
+  public readonly defaultUserName: string = process.env.DEF_USER_NAME || 'defaultRootUser';
+  public readonly defaultUserPassword: string = process.env.DEF_USER_PASSWORD || 'defaultRootUserPassword';
+
+  constructor() {
+    const envSecret = process.env.JWT_SECRET;
+    this.jwtSecret = !!envSecret
+      ? Buffer.from(envSecret)
+      : Buffer.from('StandardDevelopmentSecret');
+  }
 
   get Env(): string {
-    return this._env;
+    return this.env;
   }
 
   get Port(): number {
-    return Number(this._port);
+    return Number(this.port);
   }
 
   get DbHost(): string {
-    return this._dbHost;
+    return this.dbHost;
   }
 
   get DbPort(): string {
-    return this._dbPort;
+    return this.dbPort;
   }
 
   get DbName(): string {
-    return this._dbName;
+    return this.dbName;
   }
 
   get DbUsername(): string {
-    return this._dbUsername;
+    return this.dbUsername;
   }
 
   get DbPassword(): string {
-    return this._dbPassword;
+    return this.dbPassword;
   }
 
-  get JwtSecret(): string {
-    return this._jwtSecret;
+  get JwtSecret(): Buffer {
+    return this.jwtSecret;
   }
 
   get DefaultUserName(): string {
-    return this._defaultUserName;
+    return this.defaultUserName;
   }
 
   get DefaultUserPassword(): string {
-    return this._defaultUserPassword;
+    return this.defaultUserPassword;
   }
 }

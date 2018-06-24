@@ -5,12 +5,12 @@ import { Service, Token } from 'typedi';
 import { Logger } from '../../decorators/Logger';
 import { ILogger } from '../../interfaces/ILogger';
 import { User } from '../../models/entities/User';
-import { Repository } from 'typeorm';
 import { LoginUser } from '../../models/LoginUser';
 import { NotFoundError, UnauthorizedError } from 'routing-controllers';
-import { OrmRepository } from 'typeorm-typedi-extensions';
+import { InjectRepository } from 'typeorm-typedi-extensions';
 import { AuthService } from '../AuthService';
 import { RegisterUser } from '../../models/RegisterUser';
+import { UserRepository } from '../../repositories/UserRepository';
 
 export const UserServiceImpl = new Token<UserService>();
 
@@ -19,7 +19,7 @@ export class UserService implements IUserService {
 
   constructor(
     @Logger() private readonly logger: ILogger,
-    @OrmRepository(User) private readonly userRepository: Repository<User>,
+    @InjectRepository() private readonly userRepository: UserRepository,
     private readonly authService: AuthService
   ) {
     this.logger.verbose('Initializing User service');
@@ -27,7 +27,7 @@ export class UserService implements IUserService {
 
   public async login(loginUser: LoginUser): Promise<string> {
 
-    const user: User = await this.userRepository.findOne({ name: loginUser.username });
+    const user: User = await this.userRepository.findOneByNameWithPwHash(loginUser.username);
     this.logger.verbose('User from database', user);
 
     if (!user) {

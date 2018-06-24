@@ -48,8 +48,6 @@ export class SocketIoService {
     const token = socket.handshake.query.auth;
     const data = await this.authService.verifyToken(token);
 
-    this.logger.debug('token', token);
-
     if (!data) {
       this.socketIoLog('Client not authorized');
       next(new UnauthorizedError());
@@ -63,6 +61,7 @@ export class SocketIoService {
    * These functions handle the connections and disconnections of the clients
    * */
 
+  // TODO: maybe pass room information right on connect as query to avoid unnecessary room socket call by client?
   private readonly connectionHandler = (socket: socketIo.Socket) => {
     this.socketIoLog(`Client ${socket.id} with ip ${socket.handshake.address} connected.`);
     socket.on('room', this.handleJoinRoom(socket));
@@ -77,11 +76,9 @@ export class SocketIoService {
    */
 
   // TODO: emit errors on socket
-  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (jsonInfo: string) => {
+  private readonly handleJoinRoom = (socket: socketIo.Socket) => async (info: IJoinRoomInfo) => {
 
-    const info: IJoinRoomInfo = JSON.parse(jsonInfo);
-
-    const userRoom = await this.roomService.getRoomFromUser(info.userId);
+    const userRoom = await this.roomService.getRoomFromUser(info.userId, true);
 
     if (!!userRoom) {
 
@@ -95,7 +92,7 @@ export class SocketIoService {
       socket.leaveAll();
     }
 
-    await this.roomService.addUserToRoom(info.roomId, info.userId);
+    await this.roomService.addUserToRoom(info.roomId, info.userId, true);
 
     this.socketIoLog(`Joining room ${info.roomId}, registering message handler`);
 
@@ -104,7 +101,7 @@ export class SocketIoService {
   };
 
   private readonly handleClientMessage = (socket: socketIo.Socket, roomId: string) => (message: any) => {
-    this.socketIoLog(`Sending message ${message} to room ${roomId}`);
+    this.socketIoLog(`Sending message`, message, `to room ${roomId}`);
     socket.to(roomId).emit('message', message);
   };
 
