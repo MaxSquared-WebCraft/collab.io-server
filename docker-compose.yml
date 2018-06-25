@@ -1,17 +1,31 @@
 version: '3'
 
 services:
-  collab.io-db-dev:
+  collab-db:
     image: mysql:8.0.3
-    ports:
-      - 3306:3306
+    networks:
+      - collab-network
     environment:
       MYSQL_ROOT_PASSWORD: root_pass
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: collabio
     volumes:
-      - collabio-data-dev:/var/lib/mysql
+      - collabio-data:/var/lib/mysql
+
+  collab-server:
+    build: .
+    depends_on:
+      - collab-db
+    ports:
+      - "8080:8080"
+    networks:
+      - collab-network
+    environment:
+      DB_HOST: collab-db
 
 volumes:
-  collabio-data-dev:
+  collabio-data:
+
+networks:
+  collab-network:
