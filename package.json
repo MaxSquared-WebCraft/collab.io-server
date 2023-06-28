@@ -2,7 +2,7 @@
   "name": "collab.io-server",
   "version": "3.0.0",
   "main": "index.js",
-  "author": "Max Zauner",
+  "author": "MaxSquared-WebCraft",
   "license": "MIT",
   "dependencies": {
     "@types/jsonwebtoken": "^7.2.7",
