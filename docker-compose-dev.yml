@@ -1,5 +1,8 @@
 version: '3'
 
+# This docker compose file is only for demonstrative purposes, not for an actual prod deployment
+# secrets in this file are therefore not sensitive
+
 services:
   collab.io-db-dev:
     image: mysql:8.0.3
