@@ -5,7 +5,7 @@
 
 This repository contains the server part of our collab.io project.
 
-## Providing a backend for collab.io
+## Providing a backend for collab.io 🤝
 
 This server is the backend for the collab.io project. It provides some endpoints for user
 management, room CRUD and also web socket connections. It is the central communication hub
